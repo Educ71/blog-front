@@ -1,0 +1,8 @@
+fragment BaseUser on UserResponse {
+  bio
+  createdAt
+  email
+  name
+  updatedAt
+  userId
+}

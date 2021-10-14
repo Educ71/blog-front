@@ -1,0 +1,26 @@
+overwrite: true
+schema: "https://serene-woodland-54282.herokuapp.com/graphql"
+documents: "src/**/*.gql"
+generates:
+  src/data/graphql/schema.json:
+    plugins:
+      - "introspection"
+  src/types.ts:
+    config:
+      scalars:
+        DateTime: Date
+    plugins:
+      - typescript-apollo-client-helpers
+      - named-operations-object
+      - typescript
+  src/:
+    config:
+      addOperationExport: true
+      scalars:
+        DateTime: Date
+    preset: near-operation-file
+    presetConfig:
+      baseTypesPath: types.ts
+      extension: .gql.d.ts
+    plugins:
+      - typescript-operations

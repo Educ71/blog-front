@@ -1,0 +1,23 @@
+query Posts($data: PostConnectionInput!) {
+  posts(data: $data) {
+    edges {
+      node {
+        authorId
+        claps
+        content
+        createdAt
+        postId
+        published
+        title
+        updatedAt
+      }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+      hasPreviousPage
+      startCursor
+    }
+  }
+}
