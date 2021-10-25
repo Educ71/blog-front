@@ -1,7 +1,15 @@
-import { Stack, Flex, Box, Link, Heading, Button, Text } from "@chakra-ui/react";
-import NextLink from "next/link";
-import React from "react";
-import { usePostsQuery } from "../data/graphql/query/posts";
+import {
+  Stack,
+  Flex,
+  Box,
+  Link,
+  Heading,
+  Button,
+  Text,
+} from '@chakra-ui/react';
+import NextLink from 'next/link';
+import React from 'react';
+import { usePostsQuery } from '../data/graphql/query/posts';
 
 export default function Home() {
   const { data, loading } = usePostsQuery();

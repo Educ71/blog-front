@@ -1,27 +1,25 @@
-import { Box, Flex, Heading, Link } from "@chakra-ui/react";
-import NextLink from "next/link";
-import React from "react";
+import NextLink from 'next/link'
+import React from 'react'
 
 interface NavBarProps {}
 
 export const NavBar: React.FC<NavBarProps> = ({}) => {
   return (
-    <Flex zIndex={1} position="sticky" top={0} bg="#7A2448" p={4}>
-      <Flex flex={1} align="center" margin="auto">
-        <NextLink href="/">
-          <Link>
-            <Heading>LireReddit</Heading>
-          </Link>
+    <div className="flex sticky top-0 bg-pink-900 p-4 z-10">
+      <NextLink href="/">
+        <a>
+          <h1 className="text-4xl font-bold">LireReddit</h1>
+        </a>
+      </NextLink>
+      <div className="ml-auto flex items-center font-semibold text-white ">
+        <NextLink href="/login">
+          <a>Login</a>
         </NextLink>
-        <Box ml={"auto"}>
-          <NextLink href="/login">
-            <Link mr={4}>Login</Link>
-          </NextLink>
-          <NextLink href="/register">
-            <Link>register</Link>
-          </NextLink>
-        </Box>
-      </Flex>
-    </Flex>
-  );
-};
+        <div className="mr-3" />
+        <NextLink href="/register">
+          <a>Register</a>
+        </NextLink>
+      </div>
+    </div>
+  )
+}
