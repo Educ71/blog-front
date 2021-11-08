@@ -3,6 +3,9 @@ query Posts($data: PostConnectionInput!) {
     edges {
       node {
         ...BasePost
+        author {
+          ...BaseUser
+        }
       }
       cursor
     }

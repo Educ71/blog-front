@@ -1,5 +1,5 @@
-mutation CreateUser($data: SignupInput!) {
-  create(data: $data) {
+mutation CreateUser($createUserInput: CreateUserInput!) {
+  createUser(createUserInput: $createUserInput) {
     ...BaseUser
   }
 }

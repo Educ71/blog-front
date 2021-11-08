@@ -1,0 +1,5 @@
+mutation SignUp($data: SignupInput!) {
+  signup(data: $data) {
+    ...BaseUser
+  }
+}
