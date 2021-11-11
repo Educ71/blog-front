@@ -7,5 +7,5 @@ interface WrapperProps {
 }
 
 export const Wrapper: React.FC<WrapperProps> = ({ children }) => {
-  return <div className="mt-8 w-full max-w-screen-md mx-auto">{children}</div>
+  return <div className="mt-8 h-auto w-full max-w-screen-md mx-auto">{children}</div>
 }
