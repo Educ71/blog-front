@@ -1,26 +1,33 @@
 overwrite: true
-schema: "https://serene-woodland-54282.herokuapp.com/graphql"
-documents: "src/**/*.gql"
+schema: 'src/data/graphql/schema.json'
+documents: 'src/**/*.gql'
+config:
+  scalars:
+    DateTime: string
+hooks:
+  afterAllFileWrite:
+    - prettier --write *.gql.ts
 generates:
-  src/data/graphql/schema.json:
-    plugins:
-      - "introspection"
-  src/types.ts:
+  src/types.gql.ts:
     config:
-      scalars:
-        DateTime: Date
+      useConsts: true
     plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - fragment-matcher
       - typescript-apollo-client-helpers
       - named-operations-object
       - typescript
   src/:
     config:
-      addOperationExport: true
-      scalars:
-        DateTime: Date
+      addOperationExport: false
+      withHooks: false
     preset: near-operation-file
     presetConfig:
-      baseTypesPath: types.ts
-      extension: .gql.d.ts
+      baseTypesPath: types.gql.ts
+      extension: .gql.ts
     plugins:
+      - add:
+          content: '/* eslint-disable */'
       - typescript-operations
+      - typescript-react-apollo
